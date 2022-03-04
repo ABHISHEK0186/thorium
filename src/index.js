@@ -14,6 +14,17 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
+
+const GlobalMW= function (req, res, next){
+    const Time=  new Date().toISOString().replace(/T/,' ').replace(/\..+/,'') 
+    const Request=  req.originalUrl
+    const IP= req.ip
+    console.log (Time, Request, IP)
+}
+app.use(GlobalMW)
+
+
+
 app.use('/', route);
 
 
