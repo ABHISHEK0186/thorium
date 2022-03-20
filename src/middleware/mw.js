@@ -11,7 +11,7 @@ const authentication = async function (req, res, next) {
     }
     catch (error) {
         console.log(error)
-        res.status(500).send({ msg: error.message })
+        return res.status(500).send({ msg: error.message })
     }
 }
 
@@ -38,7 +38,7 @@ const authorisation = async function (req, res, next) {
     }
     catch (error) {
         console.log(error)
-        res.status(500).send({ msg: error.message })
+        return res.status(500).send({ msg: error.message })
     }
 }
 
